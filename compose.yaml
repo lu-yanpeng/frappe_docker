@@ -65,7 +65,14 @@ services:
     depends_on:
       - backend
       - websocket
+# docker compose \
+#  -f compose.yaml \
+#  -f overrides/compose.noproxy.yaml \
+#  -f overrides/compose.mariadb.yaml \
+#  -f overrides/compose.redis.yaml \
+#  config > ./docker-compose-test.yml
 
+# docker compose -f compose.yaml -f overrides/compose.noproxy.yaml -f overrides/compose.mariadb.yaml -f overrides/compose.redis.yaml config > ./docker-compose-test.yml
   websocket:
     <<: [*depends_on_configurator, *customizable_image]
     platform: linux/amd64

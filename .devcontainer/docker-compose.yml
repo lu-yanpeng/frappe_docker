@@ -27,8 +27,10 @@ services:
     command: sleep infinity
     environment:
       - SHELL=/bin/bash
-    volumes:
-      - ..:/workspace:cached
+#    如果实时同步代码会很卡，这个仓库只用来创建开发环境，不要把项目代码上传到这里
+#    应该在容器里clone一个新的仓库在那里开发
+#    volumes:
+#      - ..:/workspace:cached
     working_dir: /workspace/development
     ports:
       - "8000-8005:8000-8005"
